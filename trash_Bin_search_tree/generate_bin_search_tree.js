@@ -10,7 +10,7 @@ level = 4
 count= Math.pow(2,level)-1
 fileNameHeader = "bin_search_tree_data_"
 filePath = "./texts/"
-fileCount=4
+fileCount=10
 
 function randomInt(min,max){
   x=Math.random()

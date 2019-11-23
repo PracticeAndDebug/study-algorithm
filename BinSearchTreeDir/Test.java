@@ -55,7 +55,6 @@ public class Test{
 
     for( int i = 0; i < testLength; i++){
       list.insert( randArr[i] );
-      // System.out.println( "show randArr:"+i+","+randArr[i]);
     }
 
     for( int i = 0; i < testLength; i++){
@@ -63,26 +62,16 @@ public class Test{
     }
 
     for( int i = 0; i < testLength; i++){
-	    // System.out.println("\n=============== test begin ====================");
-      // System.out.println("delete valid test:"+i+","+randArr[i]);
       tree.delete( randArr[i] );
       list.delete( randArr[i] );
       // treeIsBinSearchTree( tree );
       int [] resultArr = tree.midTraverse();
-      //System.out.println("delete test tree.root.key:"+tree.root.key );
-	//System.out.print("print midTraverse arr: ");
-      // for( int j = 0; j < resultArr.length; j++){
-        //System.out.print( resultArr[j]+" ,");
-      // }
-	// System.out.print("\n");
       assert listTest.compare2ArrsNoOrder( tree.midTraverse() , list.getArr() ) : msg;
-	    // System.out.println("=============== test over ====================\n");
     }
 
     for( int i = 0; i < testLength; i++){
       tree.delete( bigRandArr[i] );
       list.delete( bigRandArr[i] );
-      // System.out.println("valid delete test:"+i+","+bigRandArr[i]);
       assert listTest.compare2ArrsNoOrder( tree.midTraverse() , list.getArr() ) : msg;
     }
 
@@ -105,23 +94,6 @@ public class Test{
       assert tree.search( i ) == null : "search should be null";
     }
   }
-
-  /*
-  private void updateTest(){ 
-    initComponent();	  
-    int i = 0;
-    for( i = 1; i < 10; i++){
-      tree.insert( i );
-      System.out.println( "i:"+i+",tree.search result:"+tree.search( i ).key );
-    }
-    for( i = 11; i < 15; i++){
-      assert tree.update( i + 10, i) == null : "without insert, update should be null";
-
-      assert tree.update( i - 10, i) != null : "after insert, update should be valid";
-      // assert tree.search( i ) != null : "after update, search should be valid";
-    }
-  }
-  */
 
   private void maxTest(){
     initComponent();	  
@@ -168,12 +140,10 @@ public class Test{
     initComponent();
     int randArr [] = insertRandArrToTree();
     BinTree pointer = tree.max( tree.root );
-    // System.out.println("start predecessorTest :");
     Arrays.sort( randArr );
     for( int i = 0; i < randArr.length; i++){
       assert pointer != null : "pointer is null";
       assert pointer.key == randArr[ randArr.length - 1 - i] : "predecessor test wrong:"+pointer.key+","+randArr[i];
-      // System.out.println(pointer.key);
       pointer = tree.predecessor( pointer );
     }
   }

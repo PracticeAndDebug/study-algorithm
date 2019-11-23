@@ -41,16 +41,12 @@ class BinSearchTree{
   }
 
   public BinTree delete( int inputKey ){ 
-     //System.out.println("\n====================start to delete =====================");
     BinTree node = search( inputKey );
-     // //System.out.println("Bst delete inputKey: "+ inputKey );
     if( node == null){
-	      //System.out.println("Bst delete 0");
       return null;
     }
     length --;
     if( node.noChild() ){
-	      //System.out.println("Bst delete 1");
       if( node == root ){
         root = null;
       }
@@ -60,10 +56,8 @@ class BinSearchTree{
       else{
         node.top.right = null;
       }
-      printMidTraverse("Bst delete 1");
     }
     else if( node.leftChildOnly() ){
-	      //System.out.println("Bst delete 3");
       if( node == root ){
         root = root.left;
 	root.top = null;
@@ -76,7 +70,6 @@ class BinSearchTree{
         node.top.right = node.left;
 	node.left.top = node.top;
       }
-      printMidTraverse("Bst delete 3");
     }
     // case: node has right child
     else{
@@ -84,22 +77,14 @@ class BinSearchTree{
       boolean nodeIsRoot = ( node == root );
       boolean rightSucc = ( node.right == succNode );
       
-       //System.out.println("Bst delete 4");
-       //System.out.println("Bst delete root.key     : " + root.key );
-       //System.out.println("Bst delete node.key     : " + node.key );
-       //System.out.println("Bst delete succNode.key : " + succNode.key );
-
       if     ( ( nodeIsRoot == true  ) && ( rightSucc == true  ) ) {
-	 //System.out.println("Bst delete 4.1");
         if( root.left != null ){
 	  succNode.left = root.left;
 	  root.left.top = succNode;
 	}	      
 	root = succNode;
-	printMidTraverse("Bst delete 4.1");
       }
       else if( ( nodeIsRoot == false ) && ( rightSucc == true  ) ) {
-	      //System.out.println("Bst delete 4.2");
         if( node.left != null ){
 	  succNode.left = node.left;
 	  node.left.top = succNode;
@@ -117,10 +102,8 @@ class BinSearchTree{
 	  succNode.top = node.top;
 	  node.top = null;
 	}
-	printMidTraverse("Bst delete 4.2");
       }
       else if( ( nodeIsRoot == true  ) && ( rightSucc == false ) ) {
-	 //System.out.println("Bst delete 4.3");
         if( succNode.right != null ){
 	  succNode.top.left = succNode.right;
 	  succNode.right.top = succNode.top;
@@ -142,10 +125,8 @@ class BinSearchTree{
 	  node.right = null;
 	}
 	root = succNode;
-	printMidTraverse("Bst delete 4.3");
       }
       else if( ( nodeIsRoot == false ) && ( rightSucc == false ) ) {
-	 //System.out.println("Bst delete 4.4");
         if( succNode.right != null ){
 	  succNode.top.left = succNode.right;
 	  succNode.right.top = succNode.top;
@@ -172,31 +153,9 @@ class BinSearchTree{
 	}
 	succNode.top = node.top;
 	node.top = null;
-	printMidTraverse("Bst delete 4.4");
       }
     }
-     //System.out.println("==================== stop delete =====================\n");
     return node;
-  }
-
-  public void printMidTraverse( String header){
-    int length = 40;
-    int count = 1;
-    BinTree node = min( root );
-     //System.out.println( header );
-    while( node != null ){
-      String msg  = ( " ,count: " + count + " ,key:"+node.key );
-      String msg2 = ( " ,left: "+( node.left == null ? null : node.left.key) );
-      String msg3 = ( " ,right :"+( node.right == null ? null : node.right.key) );
-      String msg4 = ( " ,top :"+( node.top == null ? null : node.top.key) );
-      //  //System.out.println( msg + msg2 + msg3 + msg4 );
-      node = successor( node );
-      count++;
-      if( count >= length ){
-         //System.out.println("******* too long");
-	break;
-      }
-    }
   }
 
   public BinTree search( int inputKey ){
@@ -214,19 +173,6 @@ class BinSearchTree{
     }
     return node;
   }
-
-  /*
-  public BinTree update( int inputOldKey, int inputNewKey ){ 
-     // //System.out.println( "\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" );
-     // //System.out.println( "update inputOldKey:"+inputOldKey );
-    BinTree node = search( inputOldKey );
-     // //System.out.println( "update node.key:"+( node == null ? null : node.key ) );
-    if( node != null ){
-      node.key = inputNewKey;
-    }
-    return node;
-  }
-  */
 
   public BinTree max( BinTree node ){
     BinTree result = node;

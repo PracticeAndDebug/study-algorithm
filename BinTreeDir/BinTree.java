@@ -24,21 +24,4 @@ public class BinTree{
   public boolean singleChild(){
     return ( leftChildOnly() != rightChildOnly() );
   }
-  /*
-  public int getKey (){
-    return key;
-  }
-
-  public BinTree getLeft(){
-    return left;
-  }
-
-  public BinTree getRight(){
-    return right;
-  }
-
-  public BinTree getTop(){
-    return top;
-  }
-  */
 }
