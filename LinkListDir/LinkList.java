@@ -1,4 +1,6 @@
-class LinkList{
+package LinkListDir;
+import LinkListDir.LinkListNode;
+public class LinkList{
   LinkListNode head;
   int length;
 

@@ -1,13 +1,10 @@
+package LinkListDir;
 import java.util.Random;
 import java.util.Arrays;
-class Test {
+import LinkListDir.LinkList;
+public class Test {
 
-  int randMax = 100;
-
-  public static void main( String args []){
-    Test t0 = new Test();
-    t0.checkItOut();    
-  }
+  public int randMax = 100;
 
   public void checkItOut(){
     boolean flag = this.insertTest();
@@ -16,14 +13,14 @@ class Test {
     System.out.println( flag );
   }
 
-  private boolean insertTest(){
+  public boolean insertTest(){
     LinkList linkList = new LinkList();
     int randArr [] = getRandArr(1,100);// need seed and length as inputs
     insertIntegers( linkList , randArr );
     return compare2ArrsNoOrder( linkList.getArr(), randArr );
   }
 
-  private boolean searchTest(){
+  public boolean searchTest(){
     LinkList linkList = new LinkList();	  
     LinkListNode node = null;
     for(int i=0;i<100;i++){
@@ -42,7 +39,7 @@ class Test {
     return true;
   }
 
-  private boolean deleteTest(){
+  public boolean deleteTest(){
     LinkList linkList = new LinkList();
     int randArr1 [] = getRandArr(1,1000);// need seed and length as inputs
     int randArr2 [] = getRandArr(2,1000);// need seed and length as inputs
@@ -61,29 +58,32 @@ class Test {
     return (linkList.getArr().length == 0);
   }
 
-  private void deleteIntegers(LinkList linkList,int arr[]){
+  public void deleteIntegers(LinkList linkList,int arr[]){
     for(int i=0;i<arr.length;i++){
       linkList.delete(arr[i]);
     } 
   }
 
-  private void insertIntegers(LinkList linkList, int arr[]){
+  public void insertIntegers(LinkList linkList, int arr[]){
     for(int i=0;i<arr.length;i++){
       linkList.insert(arr[i]);
     } 
   }
 
-  private boolean compare2ArrsNoOrder( int arr1[],int arr2[]){
+  public boolean compare2ArrsNoOrder( int arr1[],int arr2[]){
+    if( arr1 == null && arr2 == null ){
+      return true;
+    }
     assert (arr1.length == arr2.length): "length differ:"+arr1.length+" : "+arr2.length;
     Arrays.sort(arr1);
     Arrays.sort(arr2);
     for( int i=0;i<arr1.length;i++){
-      assert (arr1[i]==arr2[i]) : ( "compare:"+arr1[i]+" : "+arr2[i] );
+      assert (arr1[i]==arr2[i]) : ( "compare:"+i+" , "+arr1[i]+" : "+arr2[i] );
     }
     return true;
   }
 
-  private int [] getRandArr( int seed , int length){
+  public int [] getRandArr( int seed , int length){
     int arr [] = new int [ length ];
     Random rand = new Random( seed );
     for( int i = 0; i < length; i++){

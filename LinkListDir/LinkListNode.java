@@ -1,3 +1,4 @@
+package LinkListDir;
 class LinkListNode {
   LinkListNode prev;
   LinkListNode next;
