@@ -1,6 +1,6 @@
 package BinSearchTreeDir;
 import BinTreeDir.BinTree;
-class BinSearchTree{
+public class BinSearchTree{
   public BinTree root;
   public int length;
   public int maxLength;

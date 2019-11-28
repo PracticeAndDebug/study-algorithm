@@ -6,9 +6,9 @@ import java.util.Arrays;
 public class Test{
   int seed;
   int testLength;
-  LinkListDir.Test listTest;
-  BinSearchTree tree;
-  LinkList list ;
+  public LinkListDir.Test listTest;
+  public BinSearchTree tree;
+  public LinkList list ;
 
   public Test( int seed, int testLength){
     seed       = seed;
@@ -41,13 +41,13 @@ public class Test{
     return true;	  
   }
 
-  private void insertTest(){ 
+  public void insertTest(){ 
     initComponent();	  
     int randArr [] = insertRandArrToTree();
     assert listTest.compare2ArrsNoOrder( tree.midTraverse() , randArr ) : "insert fail";
   }
 
-  private void deleteTest(){ 
+  public void deleteTest(){ 
     initComponent();
     int randArr [] = insertRandArrToTree();
     int bigRandArr[] = listTest.getRandArr( seed , testLength );
@@ -77,14 +77,14 @@ public class Test{
 
   }
 
-  private void treeIsBinSearchTree( BinSearchTree inputTree ){
+  public void treeIsBinSearchTree( BinSearchTree inputTree ){
     int arr [] = inputTree.midTraverse();
     int arr2 [] = inputTree.midTraverse();
     Arrays.sort( arr );
     assert listTest.compare2ArrsNoOrder( arr , arr2 ) : "not BinSearchTree";
   }
 
-  private void searchTest(){ 
+  public void searchTest(){ 
     initComponent();	  
     for( int i = 0; i < testLength ; i++){
       tree.insert( i );
@@ -95,7 +95,7 @@ public class Test{
     }
   }
 
-  private void maxTest(){
+  public void maxTest(){
     initComponent();	  
     int randArr [] = insertRandArrToTree();
     int maxInt = randArr[0];
@@ -105,7 +105,7 @@ public class Test{
     assert maxInt == tree.max( tree.root ).key : "max test wrong";
   }
 
-  private void minTest(){
+  public void minTest(){
     initComponent();	  
     int randArr [] = insertRandArrToTree();
     int minInt = randArr[0];
@@ -115,7 +115,7 @@ public class Test{
     assert minInt == tree.min( tree.root ).key : "min test wrong";
   }
 
-  private void midTraverseTest(){
+  public void midTraverseTest(){
     initComponent();	  
     int randArr [] = insertRandArrToTree();
     int travArr [] = tree.midTraverse();
@@ -125,7 +125,7 @@ public class Test{
       assert randArr[i] == travArr[i] : "midTraverse wrong:"+randArr[i]+" , "+travArr[i];
     }
   }
-  private void successorTest(){
+  public void successorTest(){
     initComponent();
     int randArr [] = insertRandArrToTree();
     Arrays.sort( randArr );
@@ -136,7 +136,7 @@ public class Test{
     }
   }
 
-  private void predecessorTest(){
+  public void predecessorTest(){
     initComponent();
     int randArr [] = insertRandArrToTree();
     BinTree pointer = tree.max( tree.root );
@@ -148,13 +148,13 @@ public class Test{
     }
   }
 
-  private void initComponent(){
+  public void initComponent(){
     listTest   = new LinkListDir.Test();
     tree       = new BinSearchTree();	  
     list       = new LinkList();
   }
 
-  private int [] insertRandArrToTree(){
+  public int [] insertRandArrToTree(){
     int randArr [] = listTest.getRandArr(seed,testLength);
     for( int i = 0; i < randArr.length; i++){
       tree.insert( randArr[i] );

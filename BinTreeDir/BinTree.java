@@ -1,4 +1,5 @@
 package BinTreeDir;
+
 public class BinTree{
   public BinTree left;
   public BinTree right;
