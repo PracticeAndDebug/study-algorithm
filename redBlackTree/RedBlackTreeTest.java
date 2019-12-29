@@ -6,7 +6,7 @@ import common.ArrMethod;
 
 public class RedBlackTreeTest{
 	int seed = 1;
-	int length = 5;
+	int length = 100;
   int repeat = 100;
 
   public boolean run(){
@@ -14,7 +14,8 @@ public class RedBlackTreeTest{
     int flag = 0;
     for(int i=1;i< repeat ;i++){
       seed = i;
-      System.out.println(deleteTest());
+      // System.out.println(deleteTest()+" i:"+i);
+      deleteTest();
     }
 		return true;
 	}
