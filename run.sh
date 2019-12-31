@@ -7,7 +7,9 @@ rm *.class
 # rm  LinkListDir/*.class
 # rm  BinTreeDir/*.class
 # rm  redBlackTree/*.class
-# rm  common/*.class
+ rm  common/*.class
  #rm  cutRod/*.class
-rm  fbnq/*.class
+#rm  fbnq/*.class
+rm longestCommonSequence/*.class
+
 #vim log
