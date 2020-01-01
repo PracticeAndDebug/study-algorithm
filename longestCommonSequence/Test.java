@@ -2,27 +2,54 @@ package longestCommonSequence;
 import longestCommonSequence.Lcs;
 import common.StrMethod;
 import java.util.Random;
+import java.util.Date;
 public class Test{
 	int seed = 1;
-	int strLength = 9;
-	int repeat = 20;
+	int strLength = 10;
+	int repeat = 1000;
 
 
 	public boolean run(){
-		return fixedInput();
+		return fixedInput() & randInput();
 	}
 
 	public boolean fixedInput(){
 		Lcs l = new Lcs();
-		assert l.compare("qqqaaa","bbbaaa" ).equals("aaa") : "no" ;
-		assert l.compare("aqabqc","bbbabc" ).equals("abc") : "no" ;
-		assert l.compare("qaqaqa","bababa" ).equals("aaa") : "no" ;
-		assert l.compare("qaqbqc","zazbzcz").equals("abc") : "no" ;
-		assert l.compare(""      ,"zazbzc" ).equals(""   ) : "no" ;
-		assert l.compare("aaa"   ,"bb"     ).equals(""   ) : "no" ;
-		assert l.compare("aba"   ,"bb"     ).equals("b"  ) : "no" ;
+		assert l.compare1("qqqaaa","bbbaaa" ).equals("aaa") : "no" ;
+		assert l.compare1("aqabqc","bbbabc" ).equals("abc") : "no" ;
+		assert l.compare1("qaqaqa","bababa" ).equals("aaa") : "no" ;
+		assert l.compare1("qaqbqc","zazbzcz").equals("abc") : "no" ;
+		assert l.compare1(""      ,"zazbzc" ).equals(""   ) : "no" ;
+		assert l.compare1("aaa"   ,"bb"     ).equals(""   ) : "no" ;
+		assert l.compare1("aba"   ,"bb"     ).equals("b"  ) : "no" ;
 		return true;
 	}
+
+	public boolean randInput(){
+		StrMethod stm = new StrMethod();
+		Lcs lcs = new Lcs();
+		String r1="",r2="";
+
+		for( int i=0;i< this.repeat;i++){
+			String s1 = stm.getRandStr( strLength ,2*i);
+			String s2 = stm.getRandStr( strLength ,2*i+1);
+			
+			
+
+			r1 = lcs.compare1(s1,s2);
+
+
+			r2 = lcs.compare2(s1,s2);
+
+
+			assert lcs.compare1(s1,s2).equals( lcs.compare2(s1,s2)) : "no";
+	 	}
+
+		return true;
+	}
+
+
+	public void print(String s){ System.out.print(s);}
 
 	// this one is wrong
 	/*
