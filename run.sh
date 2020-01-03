@@ -10,6 +10,7 @@ rm *.class
  rm  common/*.class
  #rm  cutRod/*.class
 #rm  fbnq/*.class
-rm longestCommonSequence/*.class
+#rm longestCommonSequence/*.class
+rm optionalBinarySearchTree/*.class
 
 #vim log
