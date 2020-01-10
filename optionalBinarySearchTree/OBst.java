@@ -2,7 +2,7 @@ package optionalBinarySearchTree;
 import common.ArrMethod;
 import common.Tool;
 
-public class Obst{
+public class OBst{
 	static public int run(int p[],int q[]){
 		// let e[1~n+1,0~n] be new table	
 		int n=p.length-1;

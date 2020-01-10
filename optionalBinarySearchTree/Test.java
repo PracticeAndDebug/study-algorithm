@@ -1,6 +1,7 @@
 package optionalBinarySearchTree;
 import common.ArrMethod;
-import optionalBinarySearchTree.Obst;
+import common.Tool;
+import optionalBinarySearchTree.OBst;
 
 public class Test{
 	// assertion string 
@@ -14,14 +15,14 @@ public class Test{
 	int fixedResult = 275;
 
 	// random check args
-	int repeat = 10;
-	int strLen = 8;
+	int repeat = 100;
+	int strLen = 15;
 	
 	public boolean run(){
 		int res = 0;
 		res = recurse(p,q);
 		assert res == fixedResult : assertStr1 +"res:"+fixedResult+" ?:"+ res ;
-		res = Obst.run(p,q);
+		res = OBst.run(p,q);
 		assert res == fixedResult : assertStr2+"res:"+fixedResult+" ?:"+ res ;
 		for( int i=0;i< repeat ;i++){
 			compareCheck(i, strLen );
@@ -33,7 +34,7 @@ public class Test{
 		ArrMethod am = new ArrMethod();
 		int p[] = am.getRandArr( seed , length );
 		int q[] = am.getRandArr( seed , length );
-		assert recurse(p,q) == Obst.run(p,q): assertStr3;
+		assert recurse(p,q) == OBst.run(p,q): assertStr3;
 		//return recurse(p,q);
 		return true;
 	}

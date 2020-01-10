@@ -7,10 +7,10 @@ rm *.class
 # rm  LinkListDir/*.class
 # rm  BinTreeDir/*.class
 # rm  redBlackTree/*.class
- rm  common/*.class
- #rm  cutRod/*.class
-#rm  fbnq/*.class
-#rm longestCommonSequence/*.class
-rm optionalBinarySearchTree/*.class
+# rm  common/*.class
+# rm  cutRod/*.class
+# rm  fbnq/*.class
+# rm longestCommonSequence/*.class
+# rm optionalBinarySearchTree/*.class
+rm  greedyAlgorithm/*.class
 
-#vim log
