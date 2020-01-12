@@ -4,7 +4,8 @@
 // import common.StrMethod;
 // import longestCommonSequence.Test;
 // import greedyAlgorithm.ActivitySelection;
-import greedyAlgorithm.KnapsackProblem;
+// import greedyAlgorithm.KnapsackProblem;
+import greedyAlgorithm.Huffman;
                     // ActivitySelection.java
 // greedyAlgorithm.activitySelection
 // import optionalBinarySearchTree.Test;
@@ -12,7 +13,8 @@ import greedyAlgorithm.KnapsackProblem;
 public class Main{
   public static void main( String args []){
     // ActivitySelection a = new ActivitySelection();
-    KnapsackProblem a = new KnapsackProblem();
+    // KnapsackProblem a = new KnapsackProblem();
+		Huffman a = new Huffman();
 		System.out.println( a.test());
   }
 }
